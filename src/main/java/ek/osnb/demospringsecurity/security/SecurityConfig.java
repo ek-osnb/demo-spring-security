@@ -4,6 +4,8 @@ import ek.osnb.demospringsecurity.app.model.EntityAuthority;
 import ek.osnb.demospringsecurity.app.repository.AuthorityRepository;
 import ek.osnb.demospringsecurity.app.repository.UserRepository;
 import ek.osnb.demospringsecurity.security.jwt.JwtAuthenticationFilter;
+import ek.osnb.demospringsecurity.security.jwt.JwtAuthenticationProvider;
+import ek.osnb.demospringsecurity.security.jwt.JwtService;
 import ek.osnb.demospringsecurity.security.users.JpaUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -85,9 +87,14 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+    @Bean
+    public AuthenticationProvider jwtAuthenticationProvider(JwtService jwtService) {
+        return new JwtAuthenticationProvider(jwtService);
+    }
+
 
     @Bean
-    public AuthenticationProvider authenticationProvider(UserDetailsService uds, PasswordEncoder passwordEncoder) {
+    public AuthenticationProvider daoAuthenticationProvider(UserDetailsService uds, PasswordEncoder passwordEncoder) {
         var authProvider = new DaoAuthenticationProvider(uds);
         authProvider.setPasswordEncoder(passwordEncoder);
 
