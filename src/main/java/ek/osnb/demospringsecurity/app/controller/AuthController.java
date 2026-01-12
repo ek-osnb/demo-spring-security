@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 public class AuthController {
 
     private final JwtService jwtService;
@@ -38,9 +38,9 @@ public class AuthController {
         if(!authResult.isAuthenticated()) {
             return ResponseEntity.status(401).build();
         }
-        List<String> authoritites = authResult.getAuthorities().stream().map(Object::toString).toList();
+//        List<String> authoritites = authResult.getAuthorities().stream().map(Object::toString).toList();
 
-        var token = jwtService.generateToken(authResult.getName(),authoritites);
+        var token = jwtService.generateToken(authResult.getName(),authResult.getAuthorities());
 
 
         return ResponseEntity.ok(new LoginResp(token));
