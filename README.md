@@ -99,3 +99,11 @@ curl -X POST http://localhost:8080/api/auth/login -H "Content-Type: application/
 ```
 
 Paste the returned token into the `jwt.io` debugger to see its contents. You should be able the see the username and roles in the payload section.
+
+### Sending Requests with JWT Token
+You can use tools like `curl` or Postman to send requests with the JWT token in the `Authorization` header. For example, to access the protected endpoint:
+```bash
+curl -X GET http://localhost:8080/api/protected -H "Authorization: Bearer <your_jwt_token>"
+```
+Replace `<your_jwt_token>` with the actual token you received from the login endpoint.
+
