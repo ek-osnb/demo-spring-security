@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/public")
 public class PublicController {
 
     @GetMapping
     public ResponseEntity<GreetingDto> home() {
-        return ResponseEntity.ok(new GreetingDto("Welcome to the home endpoint!"));
+        return ResponseEntity.ok(new GreetingDto("Welcome to public endpoint!"));
     }
 }
