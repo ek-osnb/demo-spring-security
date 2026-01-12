@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script type="module" src="js/app.js"></script>
+    <title>Protected • Fullstack Example</title>
+</head>
+
+<body>
+<header>
+    <nav class="navbar">
+        <a href="/" class="navbar-brand">Fullstack Example</a>
+    </nav>
+</header>
+
+<main class="container">
+
+        <h1>Protected page</h1>
+        <p>This page requires authentication. If you see this, you’re logged in.</p>
+
+    <section>
+        <article>
+            <div>
+                <h2 >API response</h2>
+                <p>
+                    Data from <code>/api/protected</code>
+                </p>
+            </div>
+
+            <pre id="protectedData">Loading...</pre>
+        </article>
+
+        <article>
+            <div>
+                <h2>Role checks</h2>
+                <p>Based on your current token/permissions</p>
+            </div>
+
+            <div>
+                <div>
+                    <span>ROLE_ADMIN</span>
+                    <span id="adminData">Loading...</span>
+                </div>
+
+                <div>
+                    <span>ROLE_USER</span>
+                    <span id="userData">Loading...</span>
+                </div>
+            </div>
+
+            <p class="bold">Tip: if this shows “no role”, log in again to refresh the token.</p>
+        </article>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2026 OSNB @ EK</p>
+</footer>
+</body>
+</html>
