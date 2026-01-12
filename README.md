@@ -30,9 +30,10 @@ Note that storing JWT tokens in local storage can expose your application to XSS
 
 ## Preconfigured Users and Roles
 By default, there are two users and two roles configured in this demo application:
-- User: `user`, Password: `password`, Role: `USER`
-- User: `admin`, Password: `password`, Role: `ADMIN`, `USER`
+- User: `user`, Password: `user`, Role: `USER`
+- User: `admin`, Password: `admin`, Role: `ADMIN`, `USER`
 - You can modify the users and roles in the `src/main/java/ek.osnb.demospringsecurity/security/SecurityConfig.java`.
+- Or your can add an endpoint to register new users.
 - Passwords are encoded using BCryptPasswordEncoder.
 
 ## Endpoint Security
@@ -98,7 +99,7 @@ Try running the following command in your terminal to obtain a JWT token::
 curl -X POST http://localhost:8080/api/auth/login -H "Content-Type: application/json" -d '{"username":"user","password":"user"}'
 ```
 
-Paste the returned token into the `jwt.io` debugger to see its contents. You should be able the see the username and roles in the payload section.
+Paste the returned token into the `jwt.io` debugger to see its contents. You should be able to see the username and roles in the payload section.
 
 ### Sending Requests with JWT Token
 You can use tools like `curl` or Postman to send requests with the JWT token in the `Authorization` header. For example, to access the protected endpoint:
