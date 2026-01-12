@@ -1,0 +1,320 @@
+/* Header (navbar) styling */
+.navbar {
+    background: #2d8cf0;
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+/* Footer styling */
+.footer {
+    background: #e9ecef;
+    color: #2c3e50;
+    text-align: center;
+    padding: 18px 0;
+    font-size: 1rem;
+    margin-top: 40px;
+    border-top: 1px solid #d1d5da;
+}
+
+/* General page layout */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f6f8fa;
+    margin: 0;
+    padding: 0;
+    color: #222;
+    min-height: 100dvh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.container {
+    max-width: 960px;
+    margin: 2em auto;
+    background: #fff;
+    border-radius: 0.5em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 2em 2em;
+}
+
+h1,
+h2,
+h3 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+/* Button styling */
+button,
+input[type="submit"] {
+    background: #2d8cf0;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin: 4px 0;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background: #1766c3;
+}
+
+.delete-button {
+    background: #e74c3c;
+}
+
+.delete-button:hover {
+    background: #c0392b;
+}
+
+.reset-button {
+    background: #95a5a6;
+}
+
+.reset-button:hover {
+    background: #7f8c8d;
+}
+
+.edit-button {
+    background: #f39c12;
+}
+
+.edit-button:hover {
+    background: #e67e22;
+}
+
+/* Form styling */
+form {
+    margin-bottom: 24px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em auto;
+    width: auto;
+}
+
+input,
+select,
+textarea {
+    padding: 8px;
+    border: 1px solid #d1d5da;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2d8cf0;
+}
+
+#form-container input {
+    width: 100%;
+}
+
+#search {
+    width: 300px;
+    max-width: 100%;
+    margin-bottom: 16px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    background: #fafbfc;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th,
+td {
+    padding: 12px 16px;
+    text-align: left;
+}
+
+th {
+    background: #e9ecef;
+    font-weight: 600;
+    border-bottom: 2px solid #d1d5da;
+}
+
+tr {
+    border-bottom: 1px solid #e1e4e8;
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+tr:hover {
+    background: #f1f3f6;
+}
+
+/* Utility classes */
+.flex {
+    display: flex;
+    gap: 1em;
+    align-items: baseline;
+}
+
+.center {
+    text-align: center;
+}
+
+.mb-2 {
+    margin-bottom: 16px;
+}
+
+.mb-4 {
+    margin-bottom: 32px;
+}
+
+.hidden {
+    display: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+/* ---- LOGIN FORM ---- */
+/* File: `src/main/resources/static/styles/style.css` - append */
+
+/* Login page wrapper (use on the login page root element if present) */
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    min-height: calc(100dvh - 0px);
+    box-sizing: border-box;
+    /*background: linear-gradient(180deg,#eef2ff 0%, #f8fafc 100%);*/
+}
+
+/* Card-style login form */
+#loginForm {
+    /*background: #ffffff;*/
+    padding: 1.75rem;
+    /*border-radius: 10px;*/
+    /*box-shadow: 0 8px 30px rgba(17,24,39,0.08);*/
+    width: 100%;
+    max-width: 380px;
+    box-sizing: border-box;
+}
+
+/* Header inside the form */
+#loginForm h1,
+#loginForm h2 {
+    margin: 0 0 1rem 0;
+    color: #111827;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+/* Labels and layout */
+#loginForm label {
+    display: block;
+    font-size: 0.9rem;
+    color: #374151;
+    margin-bottom: 0.35rem;
+}
+
+/* Inputs specific to the login form (overrides global input styles) */
+#loginForm input[type="text"],
+#loginForm input[type="password"],
+#loginForm input[type="email"],
+#loginForm input[type="tel"],
+#loginForm select,
+#loginForm textarea {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    margin-bottom: 0.75rem;
+    /*border: 1px solid #e6e9ef;*/
+    /*border-radius: 8px;*/
+    font-size: 0.95rem;
+    color: #0f172a;
+    /*background: #fff;*/
+    /*transition: box-shadow 0.12s ease, border-color 0.12s ease;*/
+    box-sizing: border-box;
+}
+
+/* Focus state */
+#loginForm input:focus,
+#loginForm select:focus,
+#loginForm textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 6px 18px rgba(59,130,246,0.08);
+}
+
+/* Submit button (scoped) */
+#loginForm button[type="submit"],
+#loginForm input[type="submit"] {
+    width: 100%;
+    padding: 0.72rem;
+    background: linear-gradient(180deg,#2563eb,#1e40af);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    cursor: pointer;
+    transition: transform 0.06s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+    box-shadow: 0 4px 12px rgba(37,99,235,0.08);
+}
+
+/* Submit hover / active */
+#loginForm button[type="submit"]:hover,
+#loginForm input[type="submit"]:hover {
+    opacity: 0.98;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(30,64,175,0.12);
+}
+
+#loginForm button[type="submit"]:active,
+#loginForm input[type="submit"]:active {
+    transform: translateY(1px);
+}
+
+/* Small helper classes inside form */
+#loginForm .form-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+#loginForm .small {
+    font-size: 0.85rem;
+    /*color: #6b7280;*/
+}
+
+/* Responsive tweaks */
+@media (max-width: 420px) {
+    .login-page { padding: 1rem; }
+    #loginForm { padding: 1.25rem; margin: 0.5rem; }
+    #loginForm h1, #loginForm h2 { font-size: 1.05rem; margin-bottom: 0.6rem; }
+}

@@ -12,7 +12,7 @@ public class JwtAuthenticationToken extends AbstractAuthenticationToken {
 
     // Unauthenticated
     public JwtAuthenticationToken(String token) {
-        super(null);
+        super((Collection<? extends GrantedAuthority>) null);
         this.token = token;
         this.principal = null;
         setAuthenticated(false);

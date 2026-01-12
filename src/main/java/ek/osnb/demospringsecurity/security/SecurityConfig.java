@@ -35,10 +35,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtAuthenticationFilter) throws Exception {
         http
-                .authorizeHttpRequests(
-                        auth -> auth.requestMatchers("/").permitAll()
-                                .requestMatchers("auth/login").permitAll()
-                                .anyRequest().authenticated()
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/public").permitAll()
+                        .requestMatchers("/api/auth/login").permitAll()
+                        .requestMatchers("/api/**").authenticated()
+                        .requestMatchers("/h2-console/**").permitAll()
+                        .anyRequest().permitAll()
                 )
 //                .formLogin(Customizer.withDefaults())
 //                .httpBasic(Customizer.withDefaults());
@@ -61,18 +63,22 @@ public class SecurityConfig {
         authority.setName("ROLE_USER");
         authorityRepository.save(authority);
 
+        EntityAuthority authorityAdmin = new EntityAuthority();
+        authorityAdmin.setName("ROLE_ADMIN");
+        authorityRepository.save(authorityAdmin);
+
 
         UserDetails u1 = User
-                .withUsername("u1")
-                .password(encoder.encode("1234"))
+                .withUsername("user")
+                .password(encoder.encode("user"))
                 .roles("USER")
                 .build();
 
 
         UserDetails u2 = User
-                .withUsername("u2")
-                .password(encoder.encode("1234"))
-                .roles("USER")
+                .withUsername("admin")
+                .password(encoder.encode("admin"))
+                .roles("USER", "ADMIN")
                 .build();
 
         uds.createUser(u1);

@@ -7,12 +7,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/protected")
+@RequestMapping("/api/protected")
 public class ProtectedController {
 
     @GetMapping
-//    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<GreetingDto> home() {
         return ResponseEntity.ok(new GreetingDto("Welcome to the protected endpoint!"));
+    }
+
+    @GetMapping("/admin")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<GreetingDto> adminHome() {
+        return ResponseEntity.ok(new GreetingDto("Welcome to the admin protected endpoint!"));
+    }
+
+    @GetMapping("/user")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<GreetingDto> userHome() {
+        return ResponseEntity.ok(new GreetingDto("Welcome to the user protected endpoint!"));
     }
 }
