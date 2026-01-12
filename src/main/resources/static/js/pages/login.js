@@ -16,7 +16,7 @@ async function handleLoginSubmit(event) {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    performLogin({ username, password });
+    performLogin(username, password);
 
 }
 

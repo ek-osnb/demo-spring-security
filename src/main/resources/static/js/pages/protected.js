@@ -1,4 +1,4 @@
-import {fetchProtectedData, fetchProtectedDataAdmin, fetchProtectedDataUser} from "../api/protected.js";
+import {retrieveProtectedMessage, retrieveProtectedMessageForAdminRole, retrieveProtectedMessageForUserRole} from "../api/protected.js";
 
 export function initProtectedPage() {
     console.log("Protected page initialized.");
@@ -15,7 +15,7 @@ export function initProtectedPage() {
 
 
     // Fetch protected data
-    fetchProtectedData().then(data => {
+    retrieveProtectedMessage().then(data => {
         // Display protected data on the page
         const protectedDataDiv = document.getElementById("protectedData");
         protectedDataDiv.textContent = JSON.stringify(data, null, 2);
@@ -25,12 +25,12 @@ export function initProtectedPage() {
 
 
     const protectedUserData = document.querySelector("#userData");
-    fetchProtectedDataUser()
+    retrieveProtectedMessageForUserRole()
         .then(data => displayRoleSuccess(protectedUserData, true))
         .catch(e => displayRoleSuccess(protectedUserData, false))
 
     const protectedAdminData = document.querySelector("#adminData");
-    fetchProtectedDataAdmin()
+    retrieveProtectedMessageForAdminRole()
         .then(data => displayRoleSuccess(protectedAdminData, true))
         .catch(e => displayRoleSuccess(protectedAdminData, false))
 

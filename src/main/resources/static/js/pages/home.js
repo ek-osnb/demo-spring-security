@@ -1,4 +1,4 @@
-import {getJwtToken, removeJwtToken} from "../utils/token.js";
+import {getJwtToken, removeJwtToken} from "../utils/tokenUtil.js";
 
 
 export function initHomePage() {
